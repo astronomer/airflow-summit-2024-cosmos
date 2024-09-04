@@ -3,7 +3,7 @@ from pathlib import Path
 
 from cosmos import DbtDag, ProjectConfig, RenderConfig, TestBehavior, ProfileConfig, ExecutionConfig, LoadMode
 from cosmos import __version__ as cosmos_version
-
+from cosmos.config import InvocationMode
 
 import logging
 
@@ -18,6 +18,7 @@ profile_config = ProfileConfig(
 
 execution_config = ExecutionConfig(
     dbt_executable_path=Path("/usr/local/airflow/dbt_venv/bin/dbt"),
+    invocation_mode=InvocationMode.SUBPROCESS 
 )
 
 operator_args = {"install_deps": True}
