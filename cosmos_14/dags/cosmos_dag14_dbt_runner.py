@@ -23,7 +23,10 @@ execution_config = ExecutionConfig(
 
 operator_args = {"install_deps": True}
 
-project_config = ProjectConfig(jaffle_shop_path)
+project_config = ProjectConfig(
+    jaffle_shop_path,
+    partial_parse=False
+)
 
 render_config = RenderConfig(
     test_behavior=TestBehavior.AFTER_EACH,
