@@ -21,7 +21,10 @@ execution_config = ExecutionConfig(
     invocation_mode=InvocationMode.DBT_RUNNER
 )
 
-operator_args = {"install_deps": True}
+operator_args = {
+    "install_deps": True,
+    "partial_parse": False
+}
 
 project_config = ProjectConfig(
     jaffle_shop_path,

@@ -21,11 +21,14 @@ execution_config = ExecutionConfig(
     invocation_mode=InvocationMode.SUBPROCESS 
 )
 
-operator_args = {"install_deps": True}
+operator_args = {
+    "install_deps": True
+}
 
 project_config = ProjectConfig(jaffle_shop_path)
 
 render_config = RenderConfig(
+    dbt_executable_path=Path("/usr/local/airflow/dbt_venv/bin/dbt"),
     test_behavior=TestBehavior.AFTER_EACH,
     dbt_deps=True,
     load_method=LoadMode.DBT_LS,
