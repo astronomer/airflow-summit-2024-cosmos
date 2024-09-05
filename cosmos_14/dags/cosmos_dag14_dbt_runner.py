@@ -54,4 +54,4 @@ if cosmos_version.startswith("1.4"):
         tags=["cosmos_dag14"],
     )
 else:
-    logging.info(f"Skipping DAG cosmos_dag14 for cosmos version {cosmos_version}")
+    logging.info(f"Skipping DAG cosmos_dag14_dbt_runner for cosmos version {cosmos_version}")
