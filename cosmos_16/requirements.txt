@@ -1,0 +1,2 @@
+dbt-bigquery
+astronomer-cosmos==1.6.0
