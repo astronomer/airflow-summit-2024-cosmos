@@ -1,25 +1,32 @@
+import logging
 from datetime import datetime
 from pathlib import Path
 
 from cosmos import DbtDag, ProjectConfig, RenderConfig, TestBehavior, ProfileConfig, ExecutionConfig, LoadMode
 from cosmos import __version__ as cosmos_version
 from cosmos.config import InvocationMode
-
-
-import logging
+from cosmos.profiles import GoogleCloudServiceAccountFileProfileMapping
 
 jaffle_shop_path = Path("/usr/local/airflow/dbt/jaffle_shop")
 
+profile_mapping = GoogleCloudServiceAccountFileProfileMapping(
+    conn_id="gcp_profile_conn",
+    profile_args={
+        "project": "observability-sandbox-344122",
+        "dataset": "cosmos_dag13",
+        "threads": 2,
+    },
+)
+
 profile_config = ProfileConfig(
-    # these map to dbt/jaffle_shop/profiles.yml
     profile_name="airflow_db",
     target_name="bq",
-    profiles_yml_filepath=jaffle_shop_path / "profiles.yml",
+    profile_mapping=profile_mapping,
 )
 
 execution_config = ExecutionConfig(
     dbt_executable_path=Path("/usr/local/airflow/dbt_venv/bin/dbt"),
-    invocation_mode=InvocationMode.SUBPROCESS 
+    invocation_mode=InvocationMode.SUBPROCESS
 )
 
 operator_args = {
