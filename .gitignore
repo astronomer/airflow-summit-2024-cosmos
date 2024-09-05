@@ -165,3 +165,6 @@ key.json
 */key.json
 
 .idea/**
+
+# VIM
+*.sw[a-z]
