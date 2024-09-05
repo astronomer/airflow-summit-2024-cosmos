@@ -13,7 +13,7 @@ profile_mapping = GoogleCloudServiceAccountFileProfileMapping(
     conn_id="gcp_profile_conn",
     profile_args={
         "project": "observability-sandbox-344122",
-        "dataset": "cosmos_dag13",
+        "dataset": "cosmos_dag14",
         "threads": 2,
     },
 )
