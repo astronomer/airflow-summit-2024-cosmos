@@ -5,6 +5,7 @@ from pathlib import Path
 from cosmos import DbtDag, ProjectConfig, RenderConfig, TestBehavior, ProfileConfig, ExecutionConfig, LoadMode
 from cosmos import __version__ as cosmos_version
 from cosmos.config import InvocationMode
+from cosmos.profiles import GoogleCloudServiceAccountFileProfileMapping
 
 jaffle_shop_path = Path("/usr/local/airflow/dbt/jaffle_shop")
 
