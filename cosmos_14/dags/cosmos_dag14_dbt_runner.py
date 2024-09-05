@@ -23,8 +23,8 @@ execution_config = ExecutionConfig(
 
 operator_args = {
     "install_deps": True,
-    "partial_parse": False
-    "cache_dir": None    
+    "partial_parse": False,
+    "cache_dir": None
 }
 
 project_config = ProjectConfig(
